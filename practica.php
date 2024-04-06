@@ -1,103 +1,82 @@
 <?php
-    const API_URL = "https://fakestoreapi.com/products";
-    //Inicializamos nuestro curl,  que es como el manejador de la url
-    $ch = curl_init(API_URL);
-    //indeicar que queremos recibir el resultado de la peticion y no mostrarla en pantalla
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    //ejecutar la peticion y guardamos el resultado
-    $resultado = curl_exec($ch);
-    //Se parsea a un array asosiativo
-    $data = json_decode($resultado, true);
-    //se cierra la peticion
-    curl_close($ch);
+
+$nombre = "sebasstian❤️";
+$x = 3;
+$y = 3;
+$suma = $x+$y;
+$validacion = $x == $y;
+define("CONSTANTE","https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/2560px-PHP-logo.svg.png"); //las constantes en php se declaran en letras mayusculas  
+//define su uso el global
+
+// const CONSTANTE = "Hola";  Su uso es local
+
 ?>
-<h1>Productos</h1>
-<main>
-    <?php foreach($data as $item):?>
-        <div class="div-products">
-            <div class="content-button">
-                <button class="add">Add</button>
-            </div>
-            <p class="title"><?=$item['title']?></p>
-            <img src="<?=$item['image']?>" alt="">
-            <p class="price">Precio: <span class="content-price">$ <?=$item['price']?></span></p>
-            <p class="description"><?= $item['description']?></p>
-        </div>
+
+<?php if($validacion == true):?>
+    <h2>son iguales</h2>
+<?php else:?>
+    <h2>no son iguales</h2>
+<?php endif?>
+
+
+
+<h1> <?= "Hola \"$nombre\", la suma de $x y $y es: $suma " ?></h1>
+
+<img src="<?= CONSTANTE?>" alt=""> <!-- para llamar constantes solo se escribe el nombre de como se declaro-->
+
+
+<?php
+    $name = "sebasstian";
+    $age = 17;
+    $edades = match(true){
+        $age < 2 => "Eeres un bebe, $name",
+        $age < 10 => "Eeres un ni;o, $name",
+        $age < 18 => "Eeres un joven, $name",
+        $age < 40 => "Eeres un adulto, $name",
+        default => "Eeres un viejo, $name",
+    };
+
+    $array = ["hola", 2, true];
+    $array[] = "Entonces";
+    $array[2]= "Variable"; //esto es para poner este vlor en la posicion 2 de mi array
+
+    $person = [
+        "name" => "sebasstian",
+        "edad" => 21,
+        "lenguajes" => ["java", "python"]
+    ];
+
+    $person["name"] = "REY";
+    $person["lenguajes"][]="javascript"
+
+
+?>
+<h2><?=$edades?></h2>
+<ul>
+    <?php foreach($array as $posicion => $item):?>
+        <li><?=$posicion. " " . $item ?></li>
     <?php endforeach?>
-</main>
+</ul>
+
+
+
+
+
+
+
+
+
 <style>
-    *{
-        margin: 0%;
-        padding: 0%;
-        box-sizing: border-box;
-        font-family: Arial, Helvetica, sans-serif;
+    img{
+        width: 300px;
     }
+
     :root{
         color-scheme: light dark;
     }
+
     body{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-    main{
-        width: 100%;
-        max-width: 1200px;
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    .div-products{
-        width: 24%;
-        background-color: #1e1e1e;
-        padding: 1rem;
-        border-radius: 7px;
-    }
-    h1{
-        padding: 1rem;
-        font-size: 2.5rem;
-    }
-    .content-button{
-        display: flex;
-        justify-content: right;
-    }
-    .add{
-        cursor: pointer;
-        border: none;
-        background-color: red;
-        color: #fff;
-        padding: 0.7rem 2rem;
-        border-radius: 7px;
-        font-size: 1rem;
-        transition: all ease 0.3s;
-    }
-    .add:hover{
-        background-color: #c30010;
-        transform: scale(1.1);
-        font-size: 1rem;
-    }
-    .title{
-        text-align: left;
-        padding: 1rem 0 ;
-        font-size: 1.5rem;
-    }
-    img{
-        width: 95%;
-        border-radius: 7px;
-    }
-    .price{
-        padding: 1rem 0;
-        font-size: 1.3rem;
-        color: #fff;
-    }
-    .content-price{
-        color: red;
-        font-size: 1.3rem;
-    }
-    .description{
-        padding: 1rem 0;
-        font-size: 1.1rem;
+        display: grid;
+        place-content: center;
     }
 </style>
