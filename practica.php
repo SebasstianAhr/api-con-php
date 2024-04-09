@@ -66,7 +66,7 @@ define("CONSTANTE","https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PH
 
 
 
-<style>
+<style> 
     img{
         width: 300px;
     }

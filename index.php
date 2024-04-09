@@ -11,6 +11,7 @@
     //se cierra la peticion
     curl_close($ch);
 ?>
+
 <h1>Productos</h1>
 <main>
     <?php foreach($data as $item):?>
@@ -25,6 +26,8 @@
         </div>
     <?php endforeach?>
 </main>
+
+
 <style>
     *{
         margin: 0%;
