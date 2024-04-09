@@ -14,6 +14,8 @@
         public string $nombre;
         public int $nivel_pelea;*/
 
+        public $clase = 'Saiyajin'; 
+
         public function __construct(public string $nombre, public int $nivel_pelea){
         }
 
@@ -24,11 +26,8 @@
             return "Hla soy ".$this-> nombre ." ". $this->NivelDePelea();
         }
 
-        public function NivelDePelea($text="jajajjajjj") {
-            return $this->nombre." tiene un poder de pelea de ". $this ->nivel_pelea. $text;
+        public function NivelDePelea($text="texto") {
+            return $this->nombre." tiene un poder de pelea de ". $this ->nivel_pelea." ". $text. " Soy un ". $this->clase;
         }
 
-    }
-
-
-?>
+    };
