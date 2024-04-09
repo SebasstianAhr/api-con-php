@@ -2,8 +2,12 @@
  // se inicializa la clase
     class Saiyajin{
 
+        //public, Se puede 
+        //protected
+        //private
 
-       /*
+
+       
         //constructor
         public function __construct($nombre, $nivel_pelea){
             $this->nombre = $nombre;
@@ -12,12 +16,13 @@
 
         //atributos de la clase
         public string $nombre;
-        public int $nivel_pelea;*/
+        public int $nivel_pelea;
 
         public $clase = 'Saiyajin'; 
 
+        /*
         public function __construct(public string $nombre, public int $nivel_pelea){
-        }
+        }*/
 
         
         //metodo
